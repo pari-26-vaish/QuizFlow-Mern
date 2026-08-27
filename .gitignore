@@ -1,2 +1,5 @@
 **/.env
-**/node_modules/
+**/node_modules
+deisgn/
+stitch_prompt.md
+requirements.txt
