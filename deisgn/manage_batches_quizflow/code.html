@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manage Batches - QuizFlow Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-container": "#00714d",
+                      "on-error-container": "#93000a",
+                      "outline": "#777587",
+                      "on-surface-variant": "#464555",
+                      "surface-tint": "#4d44e3",
+                      "tertiary-fixed": "#ffdbcc",
+                      "on-background": "#0b1c30",
+                      "on-tertiary-fixed": "#351000",
+                      "secondary-fixed-dim": "#4edea3",
+                      "primary": "#3525cd",
+                      "secondary-fixed": "#6ffbbe",
+                      "tertiary-container": "#a44100",
+                      "on-tertiary-container": "#ffd2be",
+                      "surface-container-high": "#dce9ff",
+                      "primary-fixed-dim": "#c3c0ff",
+                      "tertiary": "#7e3000",
+                      "outline-variant": "#c7c4d8",
+                      "inverse-on-surface": "#eaf1ff",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#002113",
+                      "on-surface": "#0b1c30",
+                      "inverse-surface": "#213145",
+                      "secondary-container": "#6cf8bb",
+                      "surface-bright": "#f8f9ff",
+                      "inverse-primary": "#c3c0ff",
+                      "surface-container": "#e5eeff",
+                      "secondary": "#006c49",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed-variant": "#3323cc",
+                      "surface-container-low": "#eff4ff",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#d3e4fe",
+                      "tertiary-fixed-dim": "#ffb695",
+                      "surface-variant": "#d3e4fe",
+                      "on-primary-fixed": "#0f0069",
+                      "background": "#f8f9ff",
+                      "primary-fixed": "#e2dfff",
+                      "primary-container": "#4f46e5",
+                      "on-error": "#ffffff",
+                      "on-primary-container": "#dad7ff",
+                      "on-secondary-fixed-variant": "#005236",
+                      "on-tertiary-fixed-variant": "#7b2f00",
+                      "surface-dim": "#cbdbf5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "16px",
+                      "margin-desktop": "32px",
+                      "xs": "8px",
+                      "lg": "40px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "base": "4px",
+                      "xl": "64px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.25",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- Admin SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-72 bg-surface dark:bg-surface-container-low shadow-md dark:shadow-none flex flex-col py-6 z-40 hidden md:flex">
+<!-- Header -->
+<div class="px-6 mb-8 flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A professional headshot of a school administrator in a bright, modern office setting. Soft, natural lighting. High quality corporate portrait, SaaS premium aesthetic, clean background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCqiI2Wk1enQ5sfgfcxRlLgOjgJbQ1RTNmVNCAg0C_sn3c6XKB9Rm9K-aBdTk0WxeAYDQ18QL1FUhN-esX09Y8PPKRXd-kKm12rmqtGA8hOd4_GKFyumdrMaJC4jPImS8EA47E20CsZs8imew1PBftIdAmps6LmhP7wsFIuoqH72ODptrjz6GDlbQzi0bekAoUGp2o5NUPTryMSs7xbhn-uV7sKtwIiPBZhNAqSbHGXGJnHbPTf8wVQg"/>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary dark:text-primary-fixed">Admin Panel</h2>
+<p class="text-label-md font-label-md text-on-surface-variant">Institute Management</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 px-4 space-y-1">
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center px-4 py-3 rounded-lg hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<a class="bg-primary-container/10 dark:bg-primary-container/20 text-primary dark:text-primary-fixed border-l-4 border-primary dark:border-primary-fixed flex items-center px-4 py-3 rounded-r-lg" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-label-md font-label-md">Manage Batches</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center px-4 py-3 rounded-lg hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3">person</span>
+<span class="text-label-md font-label-md">Manage Students</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center px-4 py-3 rounded-lg hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3">quiz</span>
+<span class="text-label-md font-label-md">Manage Quiz</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center px-4 py-3 rounded-lg hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3">construction</span>
+<span class="text-label-md font-label-md">Quiz Builder</span>
+</a>
+</nav>
+<!-- CTA & Footer Links -->
+<div class="px-6 mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md py-3 px-4 rounded-lg shadow-sm hover:opacity-90 transition-opacity mb-6 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                Create New
+            </button>
+<div class="space-y-1">
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center px-4 py-2 rounded-lg hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">settings</span>
+<span class="text-label-sm font-label-sm">Settings</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center px-4 py-2 rounded-lg hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">logout</span>
+<span class="text-label-sm font-label-sm">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-72 min-h-screen flex flex-col">
+<!-- Top App Bar (Mobile Nav Toggle / Additional Actions) -->
+<header class="h-16 flex items-center justify-between px-6 bg-surface shadow-sm md:shadow-none md:bg-transparent sticky top-0 z-30">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-on-background md:hidden">Admin Panel</h1>
+</div>
+<div class="flex items-center gap-4 hidden md:flex">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a school administrator in a bright, modern office setting. Soft, natural lighting. High quality corporate portrait, SaaS premium aesthetic, clean background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnJwHiMEasLXsH_tAKg-xHT5nF7Tvr1cigcJlk21bgWBSGgbGZVkx6ZPe_ZHj0h_fzOLfBxl0A-UYPtdV043h4-IoIe9aHo5Vv6bHRuMwv7fK7y9dL9nZWsurK3N8jo-O-m3s-dmEER0EU9nfEwxHZhbDSu5Sbox5g-t614DZANl8ZWGvTBMD6pWh1QwC6bfEwcKGL5hUXlC0e-LNuBWTCEHVbGQvqxKA1spaBaIxuMdeG-mjcQrTvhA"/>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-6 md:p-8 max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-on-background">Manage Batches</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">View, edit, and organize student learning groups.</p>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2 self-start md:self-auto shrink-0">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    Create New Batch
+                </button>
+</div>
+<!-- Table Container (Card) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-surface-container-high overflow-hidden">
+<!-- Toolbar -->
+<div class="p-6 border-b border-surface-container-high flex flex-col sm:flex-row gap-4 justify-between items-center bg-surface-bright">
+<div class="relative w-full sm:max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-body-md font-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" placeholder="Search batches by name or teacher..." type="text"/>
+</div>
+<div class="flex gap-2 self-end sm:self-auto">
+<button class="p-2 border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest border-b border-surface-container-high text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">
+<th class="px-6 py-4 font-semibold">Batch Name</th>
+<th class="px-6 py-4 font-semibold">Number of Students</th>
+<th class="px-6 py-4 font-semibold">Timing</th>
+<th class="px-6 py-4 font-semibold">Assigned Teacher</th>
+<th class="px-6 py-4 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="text-body-sm font-body-sm text-on-surface divide-y divide-surface-container-high">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">science</span>
+</div>
+<div>
+<p class="font-semibold text-body-md text-on-background">Physics Advanced - Alpha</p>
+<p class="text-on-surface-variant text-label-sm">Grade 12</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">person</span>
+<span>42/50</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                        09:00 AM - 11:00 AM
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="A professional headshot of a male high school physics teacher wearing glasses and a neat button-down shirt. Clean, bright educational setting background, highly detailed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAThiH71TA0SIxVOLUVeeyhTGyO1ar8FiLGgc4wvk6c8_E1ep7y4uKzUiF6SamD9Uf0W1MLjCuYbmMdLShjyATJYqFDEYzY2riX9qvJ0D3pgJcRuYj2n-mv-PIvOc7vLr1lDN42mvtmM1A93_zi3KRT5cefZ-rFVTBFhwLojmfaXF4g2TCsK9WMg4Qo0n6wbo815SgIthzUBiYHYitz7oJrDTaIh4bcR2avp5efJTL8MqN0z-c1XO1p0A"/>
+<span>Dr. Robert Chen</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity focus-within:opacity-100">
+<button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary-container/10 rounded-md transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded-md transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">calculate</span>
+</div>
+<div>
+<p class="font-semibold text-body-md text-on-background">Mathematics - Beta</p>
+<p class="text-on-surface-variant text-label-sm">Grade 11</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">person</span>
+<span>38/40</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                        11:30 AM - 01:00 PM
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="A professional headshot of a female mathematics teacher in a bright, modern classroom setting. Warm smile, high quality corporate educational portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQBgW7YrZcj15WBw37eeeJKneVgRIgWcMknPjBoMjjrcji4WavrtK_yYlWBE7wGptIP76U7JvxE_UTGEcMBtMTPrPKBrvEGtsbJuTjNHQBW2WaDLWrUdQ_9jRHU3v7K7z6g_GYBolOD8FX7fkuLf3yVY6oTE93qPQorJ7CkMMj3t_MTQNC1WxZ62aHbN9z3r0yaAO9ANzQKIXntMaD6HBZn6gvtjR7zcaa1wWo270nEAqRuCHxNpszKg"/>
+<span>Sarah Jenkins</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity focus-within:opacity-100">
+<button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary-container/10 rounded-md transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded-md transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">biotech</span>
+</div>
+<div>
+<p class="font-semibold text-body-md text-on-background">Biology Crash Course</p>
+<p class="text-on-surface-variant text-label-sm">Grade 12 (Intensive)</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-error">warning</span>
+<span class="text-error font-medium">55/50</span> <!-- Overbooked example -->
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                        02:00 PM - 04:00 PM
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="A professional headshot of a middle-aged male biology teacher with a neat beard, standing in front of a white board. Crisp, high-end educational photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7USxQdqTAnmdrx2EQvcR9mSgdcOhk2z9DgmeUBrG33brTmSUvR2DFgJXJ-QYMvc683IlmyR5lMXnxBWJwTJ7z1mbyMOszGl1iLj8X9MgJqH11U0AjZUbe3zeDh-LflMkm9PVukAevCbl3ShDTIvZW5o0o7xNeNAYVQsWSI09Fa_KValCyYjbW7hdd3_o5pAZVwunzGV0p39gHmp3YnFak_gaK2GQcLyZzkuNN1rSo1MU0HPBIFNRO3w"/>
+<span>Michael Torres</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity focus-within:opacity-100">
+<button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary-container/10 rounded-md transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-error hover:bg-error-container/20 rounded-md transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-surface-container-high bg-surface-container-lowest flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<div>Showing 1 to 3 of 12 entries</div>
+<div class="flex gap-1">
+<button class="p-1 rounded hover:bg-surface-container-low transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary-container/10 text-primary font-bold flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low transition-colors flex items-center justify-center">2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-low transition-colors flex items-center justify-center">3</button>
+<button class="p-1 rounded hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

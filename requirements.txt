@@ -1,0 +1,34 @@
+project name: quizflow
+it will be a we application to conduct online quiz.
+
+application users:
+|- admin
+|-student
+
+admin features:
+create batch
+edit batch
+delete batch
+add student
+update student deatils
+delete student
+quiz crud - ai powered quiz creation
+check student progess
+
+student features:
+login
+solve quiz
+check his own progress
+show leaderboard of quiz
+
+figma
+ai--> design(stitch)
+
+front libraries:
+react-router-dom: for implementing routing
+
+backend libraries:
+express:for creating server
+cors: for cross domain resource sharing
+mongoose: for database
+dotenv: for accessing varible in 

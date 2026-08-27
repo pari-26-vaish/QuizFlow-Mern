@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuizFlow - Student Quiz Attempt</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#00714d",
+                    "on-error-container": "#93000a",
+                    "outline": "#777587",
+                    "on-surface-variant": "#464555",
+                    "surface-tint": "#4d44e3",
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-background": "#0b1c30",
+                    "on-tertiary-fixed": "#351000",
+                    "secondary-fixed-dim": "#4edea3",
+                    "primary": "#3525cd",
+                    "secondary-fixed": "#6ffbbe",
+                    "tertiary-container": "#a44100",
+                    "on-tertiary-container": "#ffd2be",
+                    "surface-container-high": "#dce9ff",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "tertiary": "#7e3000",
+                    "outline-variant": "#c7c4d8",
+                    "inverse-on-surface": "#eaf1ff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#002113",
+                    "on-surface": "#0b1c30",
+                    "inverse-surface": "#213145",
+                    "secondary-container": "#6cf8bb",
+                    "surface-bright": "#f8f9ff",
+                    "inverse-primary": "#c3c0ff",
+                    "surface-container": "#e5eeff",
+                    "secondary": "#006c49",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "surface-container-low": "#eff4ff",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#d3e4fe",
+                    "tertiary-fixed-dim": "#ffb695",
+                    "surface-variant": "#d3e4fe",
+                    "on-primary-fixed": "#0f0069",
+                    "background": "#f8f9ff",
+                    "primary-fixed": "#e2dfff",
+                    "primary-container": "#4f46e5",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#dad7ff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-tertiary-fixed-variant": "#7b2f00",
+                    "surface-dim": "#cbdbf5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "16px",
+                    "margin-desktop": "32px",
+                    "xs": "8px",
+                    "lg": "40px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "xl": "64px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-sans antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Fixed Top Header (Task-Focused / Distraction Free) -->
+<header class="fixed top-0 left-0 w-full bg-surface shadow-[0_4px_12px_rgba(0,0,0,0.03)] z-50">
+<div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+<!-- Left: Departure Action -->
+<button aria-label="Exit Quiz" class="flex items-center gap-2 text-on-surface-variant hover:text-error transition-colors p-2 -ml-2 rounded-lg hover:bg-error-container/20">
+<span class="material-symbols-outlined text-[20px]">close</span>
+<span class="hidden md:inline font-label-md text-label-md">Exit</span>
+</button>
+<!-- Center: Quiz Title -->
+<div class="flex-1 text-center truncate px-4">
+<h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Advanced Microeconomics - Midterm Assessment</h1>
+</div>
+<!-- Right: Timer -->
+<div class="flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full border border-outline-variant/30">
+<span class="material-symbols-outlined text-[18px] text-primary">timer</span>
+<span class="font-label-md text-label-md text-on-surface tabular-nums tracking-wider">42:15</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1 bg-surface-variant">
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" class="h-full bg-secondary transition-all duration-300 ease-out w-2/5" role="progressbar"></div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 pt-28 pb-32 px-4 md:px-8 w-full max-w-4xl mx-auto flex flex-col items-center">
+<!-- Quiz Question Canvas -->
+<div class="w-full bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.03)] p-6 md:p-10 border border-outline-variant/20">
+<!-- Metadata -->
+<div class="flex justify-between items-center mb-8">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest text-[11px]">Question 4 of 10</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" title="Flag for review">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+</button>
+</div>
+<!-- Question Stem -->
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8">
+                In a perfectly competitive market, if a firm is producing at a quantity where marginal cost exceeds marginal revenue, what action should the firm take to maximize profits?
+            </h2>
+<!-- Options Container -->
+<div class="flex flex-col gap-4">
+<!-- Option A (Unselected) -->
+<label class="group relative flex items-start gap-4 p-5 rounded-lg border-2 border-outline-variant/50 cursor-pointer hover:border-primary-fixed-dim hover:bg-surface-container-low transition-all">
+<input class="peer sr-only" name="question4" type="radio" value="A"/>
+<div class="flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-outline group-hover:text-primary-fixed-dim peer-checked:hidden">radio_button_unchecked</span>
+<span class="material-symbols-outlined text-primary hidden peer-checked:block icon-fill">radio_button_checked</span>
+</div>
+<div class="flex-1">
+<span class="font-body-md text-body-md text-on-surface group-hover:text-on-surface peer-checked:font-semibold">Increase the quantity produced until marginal cost equals marginal revenue.</span>
+</div>
+</label>
+<!-- Option B (Selected) -->
+<label class="group relative flex items-start gap-4 p-5 rounded-lg border-2 border-primary bg-primary-container/5 cursor-pointer transition-all">
+<input checked="" class="peer sr-only" name="question4" type="radio" value="B"/>
+<div class="flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-outline group-hover:text-primary-fixed-dim peer-checked:hidden">radio_button_unchecked</span>
+<span class="material-symbols-outlined text-primary hidden peer-checked:block icon-fill">radio_button_checked</span>
+</div>
+<div class="flex-1">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Decrease the quantity produced until marginal cost equals marginal revenue.</span>
+</div>
+</label>
+<!-- Option C (Unselected) -->
+<label class="group relative flex items-start gap-4 p-5 rounded-lg border-2 border-outline-variant/50 cursor-pointer hover:border-primary-fixed-dim hover:bg-surface-container-low transition-all">
+<input class="peer sr-only" name="question4" type="radio" value="C"/>
+<div class="flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-outline group-hover:text-primary-fixed-dim peer-checked:hidden">radio_button_unchecked</span>
+<span class="material-symbols-outlined text-primary hidden peer-checked:block icon-fill">radio_button_checked</span>
+</div>
+<div class="flex-1">
+<span class="font-body-md text-body-md text-on-surface group-hover:text-on-surface peer-checked:font-semibold">Maintain current production levels as it is perfectly competitive.</span>
+</div>
+</label>
+<!-- Option D (Unselected) -->
+<label class="group relative flex items-start gap-4 p-5 rounded-lg border-2 border-outline-variant/50 cursor-pointer hover:border-primary-fixed-dim hover:bg-surface-container-low transition-all">
+<input class="peer sr-only" name="question4" type="radio" value="D"/>
+<div class="flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-outline group-hover:text-primary-fixed-dim peer-checked:hidden">radio_button_unchecked</span>
+<span class="material-symbols-outlined text-primary hidden peer-checked:block icon-fill">radio_button_checked</span>
+</div>
+<div class="flex-1">
+<span class="font-body-md text-body-md text-on-surface group-hover:text-on-surface peer-checked:font-semibold">Raise the price of the product to cover the excess marginal cost.</span>
+</div>
+</label>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Navigation (Action Bar) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface shadow-[0_-4px_24px_rgba(0,0,0,0.06)] border-t border-outline-variant/20 z-40">
+<div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+<!-- Secondary Action: Previous -->
+<button class="flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-outline text-on-surface hover:bg-surface-container-low transition-colors font-label-md text-label-md min-w-[120px]">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                Previous
+            </button>
+<div class="flex items-center gap-4">
+<!-- Persistent Submit Option (Subtle) -->
+<button class="hidden md:flex items-center justify-center px-6 py-3 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">
+                    Submit Quiz Early
+                </button>
+<!-- Primary Action: Next -->
+<button class="flex items-center justify-center gap-2 px-8 py-3 rounded-lg bg-primary text-on-primary hover:bg-on-primary-fixed-variant transition-colors font-label-md text-label-md shadow-sm hover:shadow-md min-w-[140px]">
+                    Next
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>
