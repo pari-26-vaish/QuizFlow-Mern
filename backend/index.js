@@ -17,8 +17,9 @@ async function connectToDB() {
     await mongoose.connect(MONGO_URL);
     console.log("✅ Connected To DB!!...");
     await seedAdminUser();
-  } catch (err) {
+  }  catch (err) {
     console.log("❌ DB Connection Failed...", err);
+    throw err;
   }
 }
 
@@ -44,24 +45,35 @@ async function seedAdminUser() {
   }
 }
 
-connectToDB();
-
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
 app.get("/health", (req, res) => {
   res.send("Server Is Running Perfectly!!");
 });
+
 app.use("/user", userRoutes);
 app.use("/batch", batchRoutes);
 app.use("/quiz", quizRoutes);
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-  console.log(`Server Is Running at:\nhttp://localhost:${PORT}/health`);
-});
 
+async function startServer() {
+  try {
+    await connectToDB();
+
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  } catch (err) {
+    console.error("❌ Server could not start:", err);
+    process.exit(1);
+  }
+}
+
+startServer();
 // npm init -y
 // npm i express cors mongoose
 // npm i nodemon -g
